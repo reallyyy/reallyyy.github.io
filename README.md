@@ -1,2 +1,7 @@
-A modified version created based on Jerkkly Now and Jerkkly Reverie.
-This is my first time created a website. Before this I have zero knowledge of html,css, js
+# hieunt.vn CV
+
+Static CV site for Nguyen Trung Hieu.
+
+The old blog, posts, images, and Jekyll code were preserved in a separate private GitHub repository:
+
+https://github.com/reallyyy/hieunt-old-blog

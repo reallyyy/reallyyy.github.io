@@ -36,7 +36,10 @@
 }
 
 *{box-sizing:border-box;}
-html{font-size:16px;}
+html{
+  font-size:16px;
+  overflow-x:clip;
+}
 body{
   margin:0;
   background:var(--color-paper-3);
@@ -47,6 +50,7 @@ body{
   -webkit-font-smoothing:antialiased;
   -webkit-print-color-adjust:exact;
   print-color-adjust:exact;
+  overflow-x:clip;
 }
 
 /* The "sheet" */
@@ -89,6 +93,10 @@ body{
 .contact .sep{ color:var(--color-rule-2); }
 .contact a{ color:var(--color-ink-2); text-decoration:none; border-bottom:1px solid var(--color-rule); }
 .contact a:hover{ color:var(--color-accent); }
+.contact a:focus-visible{
+  outline:2px solid var(--color-focus);
+  outline-offset:2px;
+}
 
 /* ——— Sections ——— */
 section{ margin-top:var(--space-xl); }
@@ -179,6 +187,72 @@ ul.bullets li::before{
 .edu b{ color:var(--color-ink); font-weight:600; }
 .edu .sep{ color:var(--color-rule-2); margin:0 .35rem; }
 
+/* ——— Phone screens ——— */
+@media screen and (max-width:48rem){
+  body{ background:var(--color-paper); }
+  .cv{
+    width:100%;
+    max-width:none;
+    margin:0;
+    padding:var(--space-xl) var(--space-lg) var(--space-2xl);
+    box-shadow:none;
+  }
+  .name,
+  .tagline,
+  .sec-title,
+  .role-head,
+  .skill-k,
+  .skill-v{
+    min-width:0;
+    overflow-wrap:anywhere;
+  }
+  .name{ font-size:clamp(2rem, 11vw, 2.5rem); }
+  .tagline{ font-size:1.05rem; line-height:1.3; }
+  .contact{
+    display:grid;
+    grid-template-columns:minmax(0, 1fr);
+    gap:var(--space-3xs);
+  }
+  .contact .sep{ display:none; }
+  .contact a{
+    width:max-content;
+    max-width:100%;
+    white-space:nowrap;
+    overflow-wrap:normal;
+  }
+  section{ margin-top:var(--space-lg); }
+  .skill{
+    grid-template-columns:minmax(0, 1fr);
+    gap:var(--space-3xs);
+    padding:var(--space-xs) 0;
+  }
+  .role{
+    display:grid;
+    grid-template-columns:minmax(0, 1fr);
+    gap:var(--space-3xs);
+    align-items:start;
+  }
+  .title{ display:block; margin-top:.1rem; }
+  .title::before{ content:""; }
+  .date{ white-space:normal; }
+}
+
+@media screen and (max-width:22rem){
+  .cv{ padding:var(--space-lg) var(--space-md) var(--space-xl); }
+  .name{ font-size:1.9rem; }
+  .tagline{ font-size:1rem; }
+  .sec-title{
+    font-size:.9rem;
+    letter-spacing:.1em;
+    margin-bottom:var(--space-sm);
+  }
+  ul.bullets li{
+    padding-left:.9rem;
+    font-size:.88rem;
+  }
+  ul.bullets li::before{ left:0; }
+}
+
 /* ——— Print ——— */
 @page{ size:A4; margin:13mm 15mm; }
 @media print{
@@ -205,7 +279,7 @@ ul.bullets li::before{
     <div class="contact">
       <span>Hanoi, Vietnam</span><span class="sep">·</span>
       <span>Open to relocate / travel</span><span class="sep">·</span>
-      <span>(+84) 855 301 698</span><span class="sep">·</span>
+      <a href="tel:+84855301698">(+84) 855 301 698</a><span class="sep">·</span>
       <a href="mailto:hieu@hieunt.vn">hieu@hieunt.vn</a><span class="sep">·</span>
       <a href="https://github.com/reallyyy">github.com/reallyyy</a><span class="sep">·</span>
       <span>X: @wondering_camel</span>
